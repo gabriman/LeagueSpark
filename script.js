@@ -1,11 +1,12 @@
 var app = angular.module('lolapi',[]);
 
-app.controller('lolapiController', ['$scope', '$summoner', '$api', function($scope, $summoner, $api) {
+app.controller('lolapiController', ['$scope', '$summoner', '$api', '$ddragon', function($scope, $summoner, $api, $ddragon) {
 	$scope.region = 'euw';
 	$scope.apikey = '';
 
 	$scope.changeRegion = function() {
 		$api.setRegion($scope.region);
+		$ddragon.setRegion($scope.region);
 	}
 
 	$scope.changeApiKey = function() {
