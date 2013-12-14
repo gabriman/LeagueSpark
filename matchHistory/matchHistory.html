@@ -1,0 +1,7 @@
+<div id="matchHistory">
+	<span ng-repeat="game in games">
+	<champ-icon raw-name="{{game.championId|RawChampNameFromId}}"></champ-icon>
+	{{game.championId|ChampNameFromId}}
+	<br>
+	</span>
+</div>

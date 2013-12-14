@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="lolapi">
+  <head>
+    <script src="http://code.angularjs.org/1.2.5/angular.min.js"></script>
+    <script src="script.js"></script>
+    <script src="championRotation/championRotation.js"></script>
+    <script src="matchHistory/matchHistory.js"></script>
+    <script src="spark/backend/api.js"></script>
+    <script src="spark/backend/ddragon.js"></script>
+    <script src="spark/backend/data.js"></script>
+    <script src="spark/summoner.js"></script>
+    <script src="spark/display/championFilters.js"></script>
+    <script src="spark/display/icons.js"></script>
+  </head>
+  <body>
+    <div ng-controller="lolapiController">
+      Free champs :
+      <br>
+      <div free-champ-rotation></div>
+      Summoner :
+      <input type="text" ng-model="summonerName">
+      API Key :   
+      <input type="text" ng-model="apikey" ng-change="changeApiKey()">
+      Region : 
+      <select ng-model="region" ng-change="changeRegion()">
+          <option value="euw">EUW</option>
+          <option value="na">NA</option>
+      </select>
+      <button ng-click="search()">Search</button>
+      <br>
+      Id : {{summoner.id}}
+      <br>
+      Wins : {{summoner.stats[0].wins}}
+      <br>
+      League : {{summoner.league.name}}
+      <br>
+      History :
+      <div match-history games="summoner.games"></div>
+      <b>Mastery pages :</b>
+      <br>
+      <span ng-repeat="page in summoner.masteries">
+        {{page.name}}
+        <br>
+      </span>
+      <b>Rune pages :</b>
+      <br>
+      <span ng-repeat="page in summoner.runes">
+        {{page.name}}
+        <br>
+      </span>
+    </div>
+  </body>
+</html>
