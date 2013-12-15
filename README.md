@@ -1,7 +1,7 @@
-LolSpark
+LeagueSpark
 ========
 
-LolSpark is a web application providing a interface for the League of Legends API (https://developer.riotgames.com/).
+LeagueSpark is a web application providing a interface for the League of Legends API (https://developer.riotgames.com/).
 
 It is still in early development and might not have all the necessary fonctionnalities yet.
 
