@@ -29,12 +29,15 @@ Building
 --------
 
 Just setup the build environment with :
+
     npm install -g grunt-cli
 
 Install the dependencies with :
+
     npm install
 
 Build :
+
     grunt
 
 Todo
