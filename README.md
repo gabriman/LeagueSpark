@@ -49,7 +49,6 @@ Todo
 * More filters
 * Pretty interface, but I'm not really into CSS
 * Python server for proxying/caching
-* Minification task (Grunt ?)
 * Web hosting
 * Register the application to get a better API Key
 * Profit... wait...
