@@ -8,13 +8,13 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['src/script.js', 'src/**/*.js', '<%= ngtemplates.app.dest %>'],
-        dest: 'js/spark.js'
+        dest: 'dist/spark.js'
       }
     },
     uglify: {
       dist: {
         files: {
-          'js/spark.min.js': ['<%= concat.dist.dest %>']
+          'dist/spark.min.js': ['<%= concat.dist.dest %>']
         }
       }
     },
@@ -25,14 +25,14 @@ module.exports = function(grunt) {
       app:          {
         cwd:        'src/',
         src:        '**/*.html',
-        dest:       'js/templates.js',
+        dest:       'dist/templates.js',
         options:    {
             module:     'leaguespark',
             htmlmin: {
               collapseBooleanAttributes:      true,
               collapseWhitespace:             true,
               removeAttributeQuotes:          true,
-              removeComments:                 true, // Only if you don't use comment directives!
+              removeComments:                 true,
               removeEmptyAttributes:          true,
               removeRedundantAttributes:      true,
               removeScriptTypeAttributes:     true,
@@ -41,9 +41,35 @@ module.exports = function(grunt) {
         }
       }
     },
+    copy: {
+      public: {
+        files: [
+          { src:"dist/index.html", dest:"public/index.html" },
+         // { src:"dist/style.css", dest:"public/style.css" },
+          { src:"dist/spark.min.js", dest:"public/script.js" }
+        ]
+      }
+    },
     watch: {
       files: ['<%= jshint.files %>'],
       tasks: ['jshint']
+    },
+    htmlmin: {
+        dist: {
+            options: {
+                collapseBooleanAttributes:      true,
+                collapseWhitespace:             true,
+                removeAttributeQuotes:          true,
+                removeComments:                 true,
+                removeEmptyAttributes:          true,
+                removeRedundantAttributes:      true,
+                removeScriptTypeAttributes:     true,
+                removeStyleLinkTypeAttributes:  true
+          },
+          files: {
+            'dist/index.html': 'src/index.html',
+         }
+      },
     }
   });
 
@@ -51,7 +77,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-angular-templates');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
-  grunt.registerTask('default', ['jshint', 'ngtemplates', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'ngtemplates', 'concat', 'uglify', 'htmlmin', 'copy']);
 
 };

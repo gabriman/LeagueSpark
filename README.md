@@ -10,7 +10,7 @@ I'll gladly accept every kind of help. Please report issues you find and/or prop
 Usage
 -----
 
-Just open index.html in any web browser.
+Just open public/index.html in any web browser.
 
 There is currently a problem with Google Chrome as it forbids AJAX requests on "file://". You can just use a web server to distribute data (or launch one with "python -m SimpleHTTPServer" (it listens on http://localhost:8000/)).
 
