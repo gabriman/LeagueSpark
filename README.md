@@ -24,6 +24,19 @@ This code is released under the MIT License, which means you are free to reuse i
 
 Everything related to the API is located in the 'spark' folder, you can contact me if you have any question.
 
+
+Building
+--------
+
+Just setup the build environment with :
+    npm install -g grunt-cli
+
+Install the dependencies with :
+    npm install
+
+Build :
+    grunt
+
 Todo
 -------
 

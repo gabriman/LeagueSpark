@@ -70,7 +70,8 @@ module.exports = function(grunt) {
             'dist/index.html': 'src/index.html',
          }
       },
-    }
+    },
+    clean: ['dist']
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -79,7 +80,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-angular-templates');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask('default', ['jshint', 'ngtemplates', 'concat', 'uglify', 'htmlmin', 'copy']);
+  grunt.registerTask('default', ['jshint', 'ngtemplates', 'concat', 'uglify', 'htmlmin', 'copy', 'clean']);
 
 };
