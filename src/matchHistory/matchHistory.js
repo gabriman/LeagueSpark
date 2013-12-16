@@ -4,5 +4,5 @@ app.directive('matchHistory', function() {
 			games: '='
 		},
 		templateUrl: 'matchHistory/matchHistory.html'
-	}
+	};
 });

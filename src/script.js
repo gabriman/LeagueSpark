@@ -1,17 +1,17 @@
-var app = angular.module('lolapi',[]);
+var app = angular.module('leaguespark',[]);
 
-app.controller('lolapiController', ['$scope', '$summoner', '$api', '$ddragon', function($scope, $summoner, $api, $ddragon) {
+app.controller('leagueSparkController', ['$scope', '$summoner', '$api', '$ddragon', function($scope, $summoner, $api, $ddragon) {
 	$scope.region = 'euw';
 	$scope.apikey = '';
 
 	$scope.changeRegion = function() {
 		$api.setRegion($scope.region);
 		$ddragon.setRegion($scope.region);
-	}
+	};
 
 	$scope.changeApiKey = function() {
 		$api.setApiKey($scope.apikey);
-	}
+	};
 
 	$scope.search = function() {
 		if (!$scope.summonerName) return;
@@ -22,20 +22,20 @@ app.controller('lolapiController', ['$scope', '$summoner', '$api', '$ddragon', f
 			$scope.getMasteries();
 			$scope.getRunes();
 		});
-    }
+    };
 	$scope.getStats = function() {
 		$scope.summoner.stats = $summoner.getStats($scope.summoner.id);
-	}
+	};
 	$scope.getLeague = function() {
 		$scope.summoner.league = $summoner.getLeague($scope.summoner.id);
-	}
+	};
 	$scope.getGameHistory = function() {
 		$scope.summoner.games = $summoner.getGameHistory($scope.summoner.id);
-	}
+	};
 	$scope.getMasteries = function() {
 		$scope.summoner.masteries = $summoner.getMasteries($scope.summoner.id);
-	}
+	};
 	$scope.getRunes = function() {
 		$scope.summoner.runes = $summoner.getRunes($scope.summoner.id);
-	}
+	};
 }]);

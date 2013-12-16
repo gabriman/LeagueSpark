@@ -1,0 +1,11 @@
+{
+    "name": "leaguespark",
+    "version": "0.0.1-alpha",
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-jshint": "~0.6.3",
+        "grunt-contrib-uglify": "~0.2.2",
+        "grunt-contrib-concat": "~0.3.0",
+        "grunt-angular-templates": "~0.5.0"
+      }
+}
