@@ -1,4 +1,4 @@
-var app = angular.module('leaguespark',[]);
+var app = angular.module('leaguespark',['ngAnimate']);
 
 app.controller('leagueSparkController', ['$scope', '$summoner', '$api', '$ddragon', function($scope, $summoner, $api, $ddragon) {
 	$scope.region = 'euw';
@@ -39,7 +39,7 @@ app.controller('leagueSparkController', ['$scope', '$summoner', '$api', '$ddrago
 	};
 	$scope.getGameHistory = function() {
 		$scope.summoner.games = $summoner.getGameHistory($scope.summoner.id, function () {
-			$scope.loaded.history = true;
+			$scope.loaded.games = true;
 		});
 	};
 	$scope.getMasteries = function() {
