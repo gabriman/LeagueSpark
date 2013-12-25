@@ -45,7 +45,7 @@ module.exports = function(grunt) {
       public: {
         files: [
           { src:"dist/index.html", dest:"public/index.html" },
-         // { src:"dist/style.css", dest:"public/style.css" },
+          { src:"dist/style.min.css", dest:"public/style.css" },
           { src:"dist/spark.min.js", dest:"public/script.js" }
         ]
       }
@@ -71,6 +71,22 @@ module.exports = function(grunt) {
          }
       },
     },
+    stylus: {
+      compile: {
+        files: {
+          'dist/style.css': 'src/style.styl'
+        }
+      }
+    },
+    cssmin: {
+      minify: {
+        expand: true,
+        cwd: 'dist/',
+        src: ['*.css'],
+        dest: 'dist/',
+        ext: '.min.css'
+      }
+    },
     clean: ['dist']
   });
 
@@ -81,7 +97,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-stylus');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-  grunt.registerTask('default', ['jshint', 'ngtemplates', 'concat', 'uglify', 'htmlmin', 'copy', 'clean']);
+  grunt.registerTask('default', ['jshint', 'ngtemplates', 'concat', 'uglify', 'htmlmin', 'stylus', 'cssmin', 'copy', 'clean']);
 
 };
