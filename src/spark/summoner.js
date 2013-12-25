@@ -51,10 +51,12 @@ app.factory('$summoner', ['$api', function ($api) {
             var league = [], path;
             path = 'league/by-summoner/' + summonerId;
             $api.getv21(path).then(function (response) {
-                var i, responseLeague;
+                var key, responseLeague;
                 responseLeague = response[summonerId];
-                for (i = 0; i < responseLeague.length; i += 1) {
-                    league[i] = responseLeague[i];
+                for (key in responseLeague) {
+                    if (responseLeague.hasOwnProperty(key)) {
+                        league[key] = responseLeague[key];
+                    }
                 }
                 if (callback) {
                     callback();
