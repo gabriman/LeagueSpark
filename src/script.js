@@ -54,7 +54,7 @@ app.controller('leagueSparkController', ['$scope', '$summoner', '$api', '$ddrago
 	};
 	$scope.isLoaded = function() {
 		if ($scope.loaded) {
-			return ($scope.loaded.summoner && $scope.loaded.stats && $scope.loaded.league && $scope.loaded.history && $scope.loaded.masteries && $scope.loaded.runes);
+			return ($scope.loaded.summoner && $scope.loaded.stats && $scope.loaded.league && $scope.loaded.games && $scope.loaded.masteries && $scope.loaded.runes);
 		} else {
 			return false;
 		}
